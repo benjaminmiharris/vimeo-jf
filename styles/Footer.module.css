@@ -1,0 +1,13 @@
+.footerContainer {
+  height: 80px;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: end;
+}
+
+.footerText {
+  color: azure;
+  text-align: center;
+}

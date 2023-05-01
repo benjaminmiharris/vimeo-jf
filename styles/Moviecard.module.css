@@ -1,0 +1,18 @@
+.movieCard {
+  margin: 20px;
+  box-shadow: 6px 11px 23px 0px rgba(0, 0, 0, 0.75);
+}
+
+.movieCardBtn {
+  text-align: center;
+}
+
+.cardTitleContainer {
+  height: 60px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.plyBtn {
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+}
