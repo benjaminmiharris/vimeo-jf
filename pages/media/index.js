@@ -2,7 +2,6 @@ import MovieCard from "@/components/MovieCard";
 import PrimaryBtn from "@/components/PrimaryBtn";
 import { getMoviesAPITester } from "@/helpers/getMoviesApi";
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 
 import style from "../../styles/Home.module.css";
