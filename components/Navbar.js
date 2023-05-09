@@ -7,12 +7,14 @@ import PrimaryBtn from "./PrimaryBtn";
 import { useRouter } from "next/router";
 import { LOCAL_DEV } from "@/globals";
 import Form from "react-bootstrap/Form";
+import { SearchContext } from "@/context/SearchContext";
 
 const NavbarCustom = () => {
-  const [searchterm, setSearchterm] = useState("");
   const { logoutLocalStorageHandler, authToken, setAuthToken } =
     useContext(AuthContext);
   const router = useRouter();
+
+  const { searchTerm, setSearchTerm } = useContext(SearchContext);
 
   const logoutHandler = () => {
     setAuthToken(false);
@@ -22,8 +24,6 @@ const NavbarCustom = () => {
   useEffect(() => {
     logoutLocalStorageHandler();
   }, [authToken]);
-
-  console.log("search term", searchterm);
 
   return (
     <>
@@ -50,7 +50,7 @@ const NavbarCustom = () => {
                 className="me-4 "
                 aria-label="Search"
                 onChange={(e) => {
-                  setSearchterm(e.target.value);
+                  setSearchTerm(e.target.value);
                 }}
               />
             </Form>

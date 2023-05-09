@@ -1,7 +1,8 @@
 import MovieCard from "@/components/MovieCard";
 import PrimaryBtn from "@/components/PrimaryBtn";
+import { SearchContext } from "@/context/SearchContext";
 import { getMoviesAPITester } from "@/helpers/getMoviesApi";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 
 import style from "../../styles/Home.module.css";
@@ -12,11 +13,17 @@ const PostsList = () => {
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const { searchTerm } = useContext(SearchContext);
+
   const getApiDataFromVimeo = async () => {
-    const results = await getMoviesAPITester(currentPage);
+    const results = await getMoviesAPITester(currentPage, searchTerm);
     setMoviesData(results.data);
     setMoviesArray(results);
   };
+
+  useEffect(() => {
+    getApiDataFromVimeo();
+  }, [searchTerm]);
 
   useEffect(() => {
     getApiDataFromVimeo();
@@ -24,14 +31,18 @@ const PostsList = () => {
 
   useEffect(() => {
     renderMovieDataResults();
-
     paginator();
   }, [moviesData]);
 
   const paginator = () => {
+    console.log("moviesArray.per_page ", moviesArray.per_page);
+    console.log("moviesArray.total ", moviesArray.total);
+
     if (moviesArray.per_page < moviesArray.total) {
       const pages = moviesArray.total / moviesArray.per_page;
       setNumberOfPages(Math.round(pages));
+    } else {
+      setNumberOfPages(0);
     }
   };
 
