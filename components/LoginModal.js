@@ -19,7 +19,6 @@ const LoginModal = () => {
   const notify = () => toast("Wrong password. Please try again!");
 
   const passwordHandler = () => {
-    console.log("clicked");
     if (passwordValue === password) {
       router.push(`${LOCAL_DEV}/media`);
       setAuthToken(true);
