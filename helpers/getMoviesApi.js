@@ -1,5 +1,5 @@
 export const getMoviesAPITester = async (page, searchItem) => {
-  const token = process.env.VIMEO_TOKEN;
+  const token = process.env.NEXT_PUBLIC_VIMEO_TOKEN;
 
   if (searchItem == null) {
     try {
@@ -43,5 +43,3 @@ export const getMoviesAPITester = async (page, searchItem) => {
     }
   }
 };
-
-// `https://api.vimeo.com/me/albums/7372201/videos?page=${page}`,

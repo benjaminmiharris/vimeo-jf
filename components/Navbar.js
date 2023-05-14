@@ -5,7 +5,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import PrimaryBtn from "./PrimaryBtn";
 import { useRouter } from "next/router";
-import { LOCAL_DEV } from "@/globals";
 import Form from "react-bootstrap/Form";
 import { SearchContext } from "@/context/SearchContext";
 
@@ -14,11 +13,11 @@ const NavbarCustom = () => {
     useContext(AuthContext);
   const router = useRouter();
 
-  const { searchTerm, setSearchTerm } = useContext(SearchContext);
+  const { setSearchTerm } = useContext(SearchContext);
 
   const logoutHandler = () => {
     setAuthToken(false);
-    router.push(`${LOCAL_DEV}`);
+    router.push(`${process.env.NEXT_PUBLIC_DOMAIN}`);
   };
 
   useEffect(() => {

@@ -3,7 +3,6 @@ import { AuthContext } from "@/context/AuthContext";
 import { useContext, useEffect } from "react";
 import style from "../styles/Home.module.css";
 import { useRouter } from "next/router";
-import { LOCAL_DEV } from "@/globals";
 
 export default function Home() {
   const { authToken } = useContext(AuthContext);
@@ -11,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     if (authToken == true) {
-      router.push(`${LOCAL_DEV}/media`);
+      router.push(`${process.env.NEXT_PUBLIC_DOMAIN}/media`);
     }
   }, [authToken]);
 

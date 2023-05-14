@@ -35,9 +35,6 @@ const PostsList = () => {
   }, [moviesData]);
 
   const paginator = () => {
-    console.log("moviesArray.per_page ", moviesArray.per_page);
-    console.log("moviesArray.total ", moviesArray.total);
-
     if (moviesArray.per_page < moviesArray.total) {
       const pages = moviesArray.total / moviesArray.per_page;
       setNumberOfPages(Math.round(pages));

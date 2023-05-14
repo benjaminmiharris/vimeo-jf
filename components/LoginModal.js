@@ -2,7 +2,6 @@ import Modal from "react-bootstrap/Modal";
 import PrimaryBtn from "./PrimaryBtn";
 import Form from "react-bootstrap/Form";
 import { useContext, useEffect, useState } from "react";
-import { LOCAL_DEV, PASSWORD } from "@/globals";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,13 +13,13 @@ const LoginModal = () => {
   const { loginLocalForageHandler, setAuthToken, authToken } =
     useContext(AuthContext);
 
-  const passwordValue = PASSWORD;
+  const passwordValue = process.env.NEXT_PUBLIC_SITE_PASSWORD;
 
   const notify = () => toast("Wrong password. Please try again!");
 
   const passwordHandler = () => {
     if (passwordValue === password) {
-      router.push(`${LOCAL_DEV}/media`);
+      router.push(`${process.env.NEXT_PUBLIC_DOMAIN}/media`);
       setAuthToken(true);
     } else {
       notify();
