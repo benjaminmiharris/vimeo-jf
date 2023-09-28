@@ -10,8 +10,6 @@ import style from "../styles/Moviecard.module.css";
 const MovieCard = ({ movieObject }) => {
   const router = useRouter();
 
-  console.log("movieObject", movieObject);
-
   const extractIframeId = (vimeoUrl) => {
     const parts = vimeoUrl.split("/"); // Split the URL by "/"
     const videoId = parts[parts.length - 1]; // Get the last part of the array
@@ -20,7 +18,7 @@ const MovieCard = ({ movieObject }) => {
 
   const handleClick = () => {
     const videoId = extractIframeId(movieObject.player_embed_url);
-    router.push(`/media/videos/${videoId}`);
+    router.push(`/media/videos/iframe?vimeoid=${videoId}`);
   };
 
   return (
