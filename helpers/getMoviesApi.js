@@ -4,7 +4,7 @@ export const getMoviesAPITester = async (page, searchItem) => {
   if (searchItem == null) {
     try {
       const response = await fetch(
-        `https://api.vimeo.com/me/albums/7372201/videos?page=${page}`,
+        `https://api.vimeo.com/me/albums/4868372/videos?page=${page}&password=jft123`,
         {
           method: "GET",
           headers: {

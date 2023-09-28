@@ -1,6 +1,5 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { LOCAL_DEV } from "@/globals";
 
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -10,6 +9,19 @@ import style from "../styles/Moviecard.module.css";
 
 const MovieCard = ({ movieObject }) => {
   const router = useRouter();
+
+  console.log("movieObject", movieObject);
+
+  const extractIframeId = (vimeoUrl) => {
+    const parts = vimeoUrl.split("/"); // Split the URL by "/"
+    const videoId = parts[parts.length - 1]; // Get the last part of the array
+    return videoId;
+  };
+
+  const handleClick = () => {
+    const videoId = extractIframeId(movieObject.player_embed_url);
+    router.push(`/media/videos/${videoId}`);
+  };
 
   return (
     <Card
@@ -25,7 +37,7 @@ const MovieCard = ({ movieObject }) => {
           <Button
             className={style.plyBtn}
             style={{ background: "rgb(38,202,240)" }}
-            onClick={() => router.push(`${LOCAL_DEV}/media/${movieObject.uri}`)}
+            onClick={handleClick}
           >
             <FaPlay />
           </Button>
