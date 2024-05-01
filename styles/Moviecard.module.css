@@ -1,6 +1,23 @@
-.movieCard {
-  margin: 20px;
-  box-shadow: 6px 11px 23px 0px rgba(0, 0, 0, 0.75);
+.resultItem:nth-child(6n-5) {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.resultItem:nth-child(6n-1) {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.resultItem:nth-child(6n) {
+  grid-row: span 1;
+  grid-column: span 1;
+}
+
+/* Adjust styles for the items as needed */
+.result-item {
+  background-color: lightblue;
+  padding: 20px;
+  border: 1px solid blue;
 }
 
 .movieCardBtn {
@@ -11,8 +28,5 @@
   height: 60px;
   font-size: 1.1rem;
   text-align: center;
-}
-
-.plyBtn {
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  border: 1px solid red;
 }

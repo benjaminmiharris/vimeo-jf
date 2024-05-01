@@ -36,7 +36,7 @@ export const getMoviesAPITester = async (page, searchItem) => {
       );
 
       const results = await response.json();
-      console.log("results", results);
+      console.log("search results", results);
       return results;
     } catch (e) {
       console.log("Error fetching data", e);

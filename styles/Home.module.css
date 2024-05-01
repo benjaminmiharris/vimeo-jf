@@ -1,28 +1,18 @@
-.mediaResultsContainer {
-  background-color: rgba(0, 0, 0, 0.913);
-  min-height: 100vh;
-  padding-top: 80px;
-  padding-bottom: 80px;
-
-  text-align: center;
-}
-
-.mediaResults {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.resultsContainer {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  margin: auto;
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; /* Adjust spacing between items */
+  grid-auto-rows: minmax(120px, auto);
 }
 
 .loadMoreMediaResultsContainer {
   text-align: center;
   margin-top: 30px;
   padding-bottom: 100px;
-}
-
-.resultsSummaryContainer {
-  color: white;
-  padding: 30px;
-  margin-left: 35px;
 }
 
 .paginationButtons {

@@ -22,26 +22,18 @@ const MovieCard = ({ movieObject }) => {
   };
 
   return (
-    <Card
-      className={style.movieCard}
-      style={{ width: "18rem", border: "none" }}
-    >
-      <Card.Img variant="top" src={movieObject.pictures.sizes[2].link} />
-      <Card.Body>
-        <Card.Title className={style.cardTitleContainer}>
-          {movieObject.name}
-        </Card.Title>
-        <div className={style.movieCardBtn}>
-          <Button
-            className={style.plyBtn}
-            style={{ background: "rgb(38,202,240)" }}
-            onClick={handleClick}
-          >
+    <div className={style.resultItem} onClick={handleClick}>
+      <img
+        src={movieObject.pictures.sizes[4].link}
+        style={{ width: "100%", height: "100%" }}
+      />
+
+      {/* <div className={style.movieCardBtn}>
+          <Button onClick={handleClick}>
             <FaPlay />
           </Button>
-        </div>
-      </Card.Body>
-    </Card>
+        </div> */}
+    </div>
   );
 };
 

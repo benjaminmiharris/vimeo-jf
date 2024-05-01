@@ -15,14 +15,15 @@ const PostsList = () => {
 
   const { searchTerm } = useContext(SearchContext);
 
-  const getApiDataFromVimeo = async () => {
-    const results = await getMoviesAPITester(currentPage, searchTerm);
+  const getApiDataFromVimeo = async (searchItem) => {
+    const results = await getMoviesAPITester(currentPage, searchItem);
+
     setMoviesData(results.data);
     setMoviesArray(results);
   };
 
   useEffect(() => {
-    getApiDataFromVimeo();
+    getApiDataFromVimeo(searchTerm);
   }, [searchTerm]);
 
   useEffect(() => {
@@ -59,16 +60,16 @@ const PostsList = () => {
 
   const renderMovieDataResults = () => {
     return (
-      <div className={style.mediaResults}>
+      <>
         {moviesData.map((movie) => {
           return <MovieCard key={movie.uri} movieObject={movie} />;
         })}
-      </div>
+      </>
     );
   };
 
   return (
-    <div className={style.mediaResultsContainer}>
+    <div className={style.resultsContainer}>
       {moviesData.length === 0 && <Spinner animation="grow" variant="info" />}
 
       {moviesData && renderMovieDataResults()}

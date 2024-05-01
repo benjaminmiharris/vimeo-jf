@@ -13,7 +13,7 @@ const NavbarCustom = () => {
     useContext(AuthContext);
   const router = useRouter();
 
-  const { setSearchTerm } = useContext(SearchContext);
+  const { setSearchTerm, searchTerm } = useContext(SearchContext);
 
   const logoutHandler = () => {
     setAuthToken(false);
@@ -34,25 +34,25 @@ const NavbarCustom = () => {
                 src={
                   "https://pet-adoption-project.s3.eu-west-2.amazonaws.com/Jewish+Futures+logo+white.png"
                 }
-                height="30"
+                height="80"
                 className="d-inline-block align-top"
                 alt="Logo"
               />
             </Navbar.Brand>
-            <Nav className="me-auto">
+            {/* <Nav className="me-auto">
               <Nav.Link href="/media">All Media</Nav.Link>
-            </Nav>
-            <Form className="d-flex">
+            </Nav> */}
+            {/* <Form className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-4 "
                 aria-label="Search"
-                onChange={(e) => {
+                onClick={(e) => {
                   setSearchTerm(e.target.value);
                 }}
               />
-            </Form>
+            </Form> */}
             <PrimaryBtn btnText={"Logout"} onClick={logoutHandler} />
           </Container>
         </Navbar>
